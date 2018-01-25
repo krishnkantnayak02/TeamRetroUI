@@ -1,5 +1,4 @@
 import React from 'react';
-import {Router, Route, browserHistory, IndexRoute} from "react-router";
 import Home from './Home'
 import About from './About'
 import './main.css'
@@ -47,7 +46,7 @@ class Header extends React.Component{
                 </div>
                 <ul className="nav navbar-nav">
                   <li className="active"><a href="/home">Home</a></li>
-                  <li><a href="/board" onClick={() => this.setState({showModal: true})} >Create Board</a></li>
+                  <li><a href="/board/1" onClick={() => this.setState({showModal: true})} >Create Board</a></li>
                   <li><a href="/team">Create Team</a></li>
                   <li><a href="/about">About</a></li>
                 </ul>
