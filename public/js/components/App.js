@@ -1,44 +1,37 @@
-import React, { Component } from 'react';
-import './App.css';
-import { 
-  BrowserRouter as Router,
-  Route,
-  Link,
-  NavLink,
-  Prompt,
-  Switch
-} from 'react-router-dom'
+import React from "react";
+import {connect} from "react-redux";
 
-const Home = () => (
-  <h1>Home</h1>
-)
+import { User } from './User';
+import { Main } from './Main';
+
+class App extends React.Component {
+    render() {
+        return (
+            <div className="container">
+                <Main changeUsername={() => this.props.setName("Krishnkant")}/>
+                <User username={this.props.user.name}/>
+            </div>
+        );
+    }
+}
+
+const mapStateToProps = (state) => {
+ return{
+     user : state.user,
+     math : state.math
+ }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return{
+      setName : (name) => {
+          dispatch({
+              type: "SET_NAME",
+              payload : name
+          })
+      }
+    }
+}
 
 
-const NotFound = () => (
-  <h1>NotFound</h1>
-)
-
-
-
-const About = () => (
-  <h1>About</h1>
-)
-
-
-
-const App = () => (
-  <Router>
-  
-   <div>
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/content" component={Content} />
-      <Route path="/form" component={Form} />
-    
-   
-    
-    </div>
-  </Router>
-)
-
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
