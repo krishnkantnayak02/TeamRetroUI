@@ -5312,6 +5312,10 @@ var _Team = __webpack_require__(179);
 
 var _Team2 = _interopRequireDefault(_Team);
 
+var _Instruction = __webpack_require__(180);
+
+var _Instruction2 = _interopRequireDefault(_Instruction);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5340,7 +5344,7 @@ var Index = function (_React$Component) {
             var _this2 = this;
 
             var headerData = {
-                "heading": "CompoZed Lab Team Retro",
+                "heading": "CompoZed Quiz",
                 "tagline": "Team activities!"
             };
 
@@ -5364,6 +5368,7 @@ var Index = function (_React$Component) {
                             return _react2.default.createElement(_Board2.default, { openAlert: _this2.openAlert });
                         } }),
                     _react2.default.createElement(_reactRouter.Route, { path: '/team', component: _Team2.default }),
+                    _react2.default.createElement(_reactRouter.Router, { path: '/quiz', component: _Instruction2.default }),
                     _react2.default.createElement(_reactRouter.Router, { path: '/about', component: _About2.default })
                 )
             );
@@ -22775,43 +22780,21 @@ var Header = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                   'a',
+                  { href: '/quiz' },
+                  'Create Quiz'
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'a',
                   { href: '/about' },
                   'About'
                 )
               )
             ),
-            _react2.default.createElement(
-              'div',
-              { className: 'btn-group', role: 'group' },
-              _react2.default.createElement(
-                'button',
-                { type: 'button', className: 'btn btn-default dropdown-toggle', 'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
-                'Dropdown',
-                _react2.default.createElement('span', { className: 'caret' })
-              ),
-              _react2.default.createElement(
-                'ul',
-                { className: 'dropdown-menu' },
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  _react2.default.createElement(
-                    'a',
-                    { href: '#' },
-                    'Dropdown link'
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  _react2.default.createElement(
-                    'a',
-                    { href: '#' },
-                    'Dropdown link'
-                  )
-                )
-              )
-            ),
+            _react2.default.createElement('div', { className: 'btn-group', role: 'group' }),
             _react2.default.createElement(
               'ul',
               { className: 'nav navbar-nav navbar-right' },
@@ -32593,6 +32576,349 @@ var Team = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Team;
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Quiz = __webpack_require__(181);
+
+var _Quiz2 = _interopRequireDefault(_Quiz);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Instruction = function (_React$Component) {
+  _inherits(Instruction, _React$Component);
+
+  function Instruction() {
+    _classCallCheck(this, Instruction);
+
+    var _this = _possibleConstructorReturn(this, (Instruction.__proto__ || Object.getPrototypeOf(Instruction)).call(this));
+
+    _this.state = {
+      toggle: "instruction"
+    };
+    _this.instruction = _this.instruction;
+    return _this;
+  }
+
+  _createClass(Instruction, [{
+    key: 'openQuiz',
+    value: function openQuiz() {
+      this.setState({ toggle: "quiz" });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      this.instruction = _react2.default.createElement(
+        'div',
+        null,
+        ' ',
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-6 col-md-offset-5' },
+            _react2.default.createElement(
+              'p',
+              { style: { color: "red", fontSize: "20px" } },
+              'Instruction For Quiz'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'p',
+            { className: 'text-center' },
+            'Left aligned text on viewports sized '
+          ),
+          _react2.default.createElement(
+            'p',
+            { className: 'text-center' },
+            'Left aligned text on viewports sized '
+          ),
+          _react2.default.createElement(
+            'p',
+            { className: 'text-center' },
+            'Left aligned text on viewports sized '
+          ),
+          _react2.default.createElement(
+            'p',
+            { className: 'text-center' },
+            'Left aligned text on viewports sized '
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'text-center' },
+          _react2.default.createElement(
+            'button',
+            { type: 'button', className: 'btn btn-primary', onClick: this.openQuiz.bind(this) },
+            'Got It! Start Quiz '
+          )
+        )
+      );
+
+      switch (this.state.toggle) {
+        case "instruction":
+          return _react2.default.createElement(
+            'div',
+            null,
+            this.instruction
+          );
+        case "quiz":
+          return _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(_Quiz2.default, null)
+          );
+      }
+    }
+  }]);
+
+  return Instruction;
+}(_react2.default.Component);
+
+exports.default = Instruction;
+
+/***/ }),
+/* 181 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Quiz = function (_React$Component) {
+  _inherits(Quiz, _React$Component);
+
+  function Quiz(props) {
+    _classCallCheck(this, Quiz);
+
+    var _this2 = _possibleConstructorReturn(this, (Quiz.__proto__ || Object.getPrototypeOf(Quiz)).call(this, props));
+
+    _this2.state = { secondsElapsed: 0, timerRunning: false, next: false, questionId: 0 };
+    _this2.getSeconds = _this2.getSeconds.bind(_this2);
+    _this2.getMinutes = _this2.getMinutes.bind(_this2);
+    _this2.handleStartClick = _this2.handleStartClick.bind(_this2);
+    _this2.handleStopClick = _this2.handleStopClick.bind(_this2);
+    _this2.handleResetClick = _this2.handleResetClick.bind(_this2);
+    _this2.incrementer = _this2.incrementer;
+
+    return _this2;
+  }
+
+  _createClass(Quiz, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      console.log("in side components did mount");
+      this.handleStartClick();
+    }
+  }, {
+    key: 'getSeconds',
+    value: function getSeconds() {
+      return ('0' + this.state.secondsElapsed % 60).slice(-2);
+    }
+  }, {
+    key: 'getMinutes',
+    value: function getMinutes() {
+      return Math.floor(this.state.secondsElapsed / 60);
+    }
+  }, {
+    key: 'handleStartClick',
+    value: function handleStartClick() {
+      var _this = this;
+
+      this.setState({ timerRunning: true });
+      this.incrementer = setInterval(function () {
+        _this.setState({ secondsElapsed: _this.state.secondsElapsed + 1 });
+      }, 1000);
+    }
+  }, {
+    key: 'handleStopClick',
+    value: function handleStopClick() {
+
+      clearInterval(this.incrementer);
+      this.setState({
+        lastClearedIncrementer: this.incrementer,
+        timerRunning: false
+      });
+
+      this.setState({ next: true });
+    }
+  }, {
+    key: 'handleResetClick',
+    value: function handleResetClick() {
+      this.setState({ secondsElapsed: 0, timerRunning: false, lastClearedIncrementer: this.incrementer });
+      this.handleStartClick();
+      this.pageRecall();
+    }
+  }, {
+    key: 'pageRecall',
+    value: function pageRecall() {
+      this.setState({ secondsElapsed: 0 });
+      this.setState({ questionId: this.state.questionId + 1 });
+      console.log(">>>krishnkant", this.state.questionId);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+
+      var data = [{
+        "id": 1,
+        "question": "Here are some words translated from an artificial language.gorblflur means fan belt pixngorbl means ceiling fan arthtusl means tile roof Which word could mean ceiling tile ?",
+        "ans": "pixnarth"
+      }, {
+        "id": 2,
+        "question": "what is your name what is your name what is your name what is your name  what is your name what is your name what is your name",
+        "ans": "Ramakant"
+      }, {
+        "id": 2,
+        "question": "what is your name what is your name what is your name what is your name  what is your name what is your name what is your name",
+        "ans": "kk"
+      }];
+
+      var timmer = _react2.default.createElement(
+        'div',
+        { style: { marginRight: '20px' }, className: 'text-right' },
+        _react2.default.createElement(
+          'h1',
+          { style: { fontSize: '70px', color: 'Blue' } },
+          this.getMinutes(),
+          ':',
+          this.getSeconds()
+        ),
+        !this.state.timerRunning ? _react2.default.createElement(
+          'button',
+          { type: 'button', onClick: this.handleStartClick },
+          'start'
+        ) : _react2.default.createElement(
+          'button',
+          { type: 'button', onClick: this.handleStopClick },
+          'Right Answer'
+        ),
+        this.state.next ? _react2.default.createElement(
+          'div',
+          { style: { marginRight: '20px' }, className: 'text-right' },
+          ' ',
+          _react2.default.createElement(
+            'button',
+            { type: 'button', className: 'btn btn-success', onClick: this.handleResetClick },
+            'Next Question'
+          )
+        ) : null
+      );
+
+      var ansDiv = _react2.default.createElement(
+        'div',
+        { className: 'container' },
+        _react2.default.createElement(
+          'h2',
+          { style: { color: 'green' } },
+          'Answer Is'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'panel panel-default' },
+          _react2.default.createElement(
+            'div',
+            { className: 'panel-body' },
+            data[this.state.questionId].ans
+          )
+        )
+      );
+      var finalDiv = this.state.questionId < 2 ? _react2.default.createElement('img', { src: 'static/img/Time-Out1.jpg', className: 'img-responsive center-block' }) : _react2.default.createElement('img', { src: 'static/img/thanks2.jpg', className: 'img-responsive center-block', style: { height: '200px' } });
+
+      {
+        return this.state.secondsElapsed < 5 ? _react2.default.createElement(
+          'div',
+          { className: 'container' },
+          _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-sm-9 col-md-6 col-lg-8', style: { background: '#ffe6e6' } },
+              _react2.default.createElement(
+                'p',
+                { className: 'text-center', style: { fontSize: '30px', color: 'black' } },
+                ' ',
+                data[this.state.questionId].question
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-sm-3 col-md-6 col-lg-4' },
+              timmer
+            )
+          ),
+          !this.state.timerRunning ? _react2.default.createElement(
+            'div',
+            null,
+            ansDiv
+          ) : _react2.default.createElement('div', null)
+        ) : _react2.default.createElement(
+          'div',
+          null,
+          finalDiv,
+          _react2.default.createElement(
+            'div',
+            { style: { marginRight: '20px' }, className: 'text-right' },
+            this.state.secondsElapsed > 4 ? _react2.default.createElement(
+              'button',
+              { type: 'button', className: 'btn btn-success', onClick: this.pageRecall.bind(this) },
+              'Next Question'
+            ) : null
+          ),
+          ansDiv
+        );
+      }
+    }
+  }]);
+
+  return Quiz;
+}(_react2.default.Component);
+
+exports.default = Quiz;
 
 /***/ })
 /******/ ]);

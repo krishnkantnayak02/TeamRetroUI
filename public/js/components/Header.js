@@ -49,17 +49,18 @@ class Header extends React.Component{
                   <li className="active"><a href="/home">Home</a></li>
                   <li><a href="/board" onClick={() => this.setState({showModal: true})} >Create Board</a></li>
                   <li><a href="/team">Create Team</a></li>
+                  <li><a href="/quiz">Create Quiz</a></li>
                   <li><a href="/about">About</a></li>
                 </ul>
                 <div className="btn-group" role="group">
-                <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {/* <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Dropdown
                   <span className="caret"></span>
-                </button>
-                <ul className="dropdown-menu">
+                </button> */}
+                {/* <ul className="dropdown-menu">
                   <li><a href="#">Dropdown link</a></li>
                   <li><a href="#">Dropdown link</a></li>
-                </ul>
+                </ul> */}
                 
               </div>
                 <ul className="nav navbar-nav navbar-right">

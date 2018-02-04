@@ -6,6 +6,7 @@ import Board from './js/components/Board'
 import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 import Home from './js/components/Home';
 import Team from './js/components/Team'
+import QuizInstruction from './js/components/quizs/Instruction'
 
 class Index extends React.Component {
   
@@ -15,7 +16,7 @@ class Index extends React.Component {
      }
         render() {
              var headerData = {
-                 "heading" : "CompoZed Lab Team Retro",
+                 "heading" : "CompoZed Quiz",
                  "tagline" : "Team activities!"
              }
 
@@ -38,6 +39,7 @@ class Index extends React.Component {
                                 {/* <Route path = "/board" component = {MyProductPage} /> */}
                                 <Route path = "/board"  component={() => <Board openAlert = {this.openAlert} />} />
                                 <Route path = "/team" component = {Team} />
+                                <Router path = "/quiz" component = {QuizInstruction} />
                                 <Router path = "/about" component = {About} />
                        </Router>
                     </div>
