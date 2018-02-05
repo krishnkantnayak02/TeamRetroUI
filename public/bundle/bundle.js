@@ -32810,12 +32810,24 @@ var Quiz = function (_React$Component) {
         "ans": "pixnarth"
       }, {
         "id": 2,
-        "question": "what is your name what is your name what is your name what is your name  what is your name what is your name what is your name",
-        "ans": "Ramakant"
+        "question": "If A + B means A is the brother of B; A - B means A is the sister of B and A x B means A is the father of B. Which of the following means that C is the son of M?",
+        "ans": "M x N - C + F"
       }, {
-        "id": 2,
-        "question": "what is your name what is your name what is your name what is your name  what is your name what is your name what is your name",
-        "ans": "kk"
+        "id": 3,
+        "question": " Deepak said to Nitin, That boy playing with the football is the younger of the two brothers of the daughter of my father's wife. How is the boy playing football related to Deepak?",
+        "ans": "Brother"
+      }, {
+        "id": 4,
+        "question": " Which cannot directly cause a thread to stop executing?",
+        "ans": "Calling notify() method on an object."
+      }, {
+        "id": 5,
+        "question": "  This country contributes $1 mn to UN Development Partnership Fund.",
+        "ans": "India"
+      }, {
+        "id": 6,
+        "question": "test",
+        "ans": "test"
       }];
 
       var timmer = _react2.default.createElement(
@@ -32844,7 +32856,7 @@ var Quiz = function (_React$Component) {
           _react2.default.createElement(
             'button',
             { type: 'button', className: 'btn btn-success', onClick: this.handleResetClick },
-            'Next Question'
+            this.state.questionId < 4 ? "Next Question" : "Finish"
           )
         ) : null
       );
@@ -32867,10 +32879,10 @@ var Quiz = function (_React$Component) {
           )
         )
       );
-      var finalDiv = this.state.questionId < 2 ? _react2.default.createElement('img', { src: 'static/img/Time-Out1.jpg', className: 'img-responsive center-block' }) : _react2.default.createElement('img', { src: 'static/img/finalImage.jpg', className: 'img-responsive center-block', style: { height: '300px' } });
+      var finalDiv = this.state.questionId < 5 ? _react2.default.createElement('img', { src: 'static/img/Time-Out1.jpg', className: 'img-responsive center-block' }) : _react2.default.createElement('img', { src: 'static/img/finalImage.jpg', className: 'img-responsive center-block', style: { height: '300px' } });
 
       {
-        return this.state.secondsElapsed < 5 && this.state.questionId < 2 ? _react2.default.createElement(
+        return this.state.secondsElapsed < 11 && this.state.questionId < 5 ? _react2.default.createElement(
           'div',
           { className: 'container' },
           _react2.default.createElement(
@@ -32904,13 +32916,13 @@ var Quiz = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { style: { marginRight: '20px' }, className: 'text-right' },
-            this.state.secondsElapsed > 4 && this.state.questionId < 2 ? _react2.default.createElement(
+            this.state.secondsElapsed > 9 && this.state.questionId < 5 ? _react2.default.createElement(
               'button',
               { type: 'button', className: 'btn btn-success', onClick: this.pageRecall.bind(this) },
-              'Next Question'
+              this.state.questionId < 4 ? "Next Question" : "Finish"
             ) : null
           ),
-          !(this.state.secondsElapsed < 5) && this.state.questionId < 2 ? _react2.default.createElement(
+          !(this.state.secondsElapsed < 10) && this.state.questionId < 5 ? _react2.default.createElement(
             'div',
             null,
             ' ',
