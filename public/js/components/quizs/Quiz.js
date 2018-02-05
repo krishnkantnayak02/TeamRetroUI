@@ -103,35 +103,36 @@ export default class Quiz extends React.Component{
                                             <div  className="panel-body">{data[this.state.questionId].ans}</div>
                                         </div>
                                     </div>
-   const finalDiv =  (this.state.questionId < 2) ? <img src = "static/img/Time-Out1.jpg" className = "img-responsive center-block" /> : <img src = "static/img/thanks2.jpg" className = "img-responsive center-block" style = {{height : '200px'}} />
+   const finalDiv =  (this.state.questionId < 2) ? <img src = "static/img/Time-Out1.jpg" className = "img-responsive center-block" /> : <img src = "static/img/finalImage.jpg" className = "img-responsive center-block" style = {{height : '300px'}} />
 
     
     {
-        return this.state.secondsElapsed < 5 
+        return (this.state.secondsElapsed < 5)  && (this.state.questionId < 2)
         ? 
 
         <div className="container">
                  <div className="row">
                  <div className="col-sm-9 col-md-6 col-lg-8"  style = {{background : '#ffe6e6'}}>
-                 <p className="text-center" style = {{fontSize : '30px' , color : 'black'}}> {data[this.state.questionId].question}</p>
+                 <p className="text-center" style = {{fontSize : '30px' , color : 'black'}}> {"Q"+data[this.state.questionId].id +"-  " + data[this.state.questionId].question}</p>
                  </div>
                  <div className="col-sm-3 col-md-6 col-lg-4" >
                    {timmer}
                  </div>
                </div>
-           {(!this.state.timerRunning) ? <div>{ansDiv}</div> : <div></div>}
+           {(!this.state.timerRunning) ? <div>{ansDiv}</div> :null}
         </div>
          : 
-         <div>{finalDiv} 
+         <div>
+         {finalDiv} 
 
 
        <div style = {{marginRight : '20px'}} className="text-right" >
-        {(  this.state.secondsElapsed > 4)
+        {(  this.state.secondsElapsed > 4 && (this.state.questionId < 2))
             ? <button type="button" className="btn btn-success" onClick = {this.pageRecall.bind(this)}>Next Question</button>
             : null
           }
           </div>
-        {ansDiv}
+          {!(this.state.secondsElapsed < 5) && (this.state.questionId < 2) ? <div> {ansDiv} </div> : null}
         </div>;
       }
   }

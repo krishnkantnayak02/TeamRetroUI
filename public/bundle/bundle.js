@@ -4466,12 +4466,13 @@ var Home = function (_React$Component) {
     }
 
     _createClass(Home, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return _react2.default.createElement(
-                'div',
+                "div",
                 null,
-                'Home'
+                " ",
+                _react2.default.createElement("img", { src: "static/img/welcomeImg.jpg", className: "img-responsive center-block", style: { height: '300px' } })
             );
         }
     }]);
@@ -32866,10 +32867,10 @@ var Quiz = function (_React$Component) {
           )
         )
       );
-      var finalDiv = this.state.questionId < 2 ? _react2.default.createElement('img', { src: 'static/img/Time-Out1.jpg', className: 'img-responsive center-block' }) : _react2.default.createElement('img', { src: 'static/img/thanks2.jpg', className: 'img-responsive center-block', style: { height: '200px' } });
+      var finalDiv = this.state.questionId < 2 ? _react2.default.createElement('img', { src: 'static/img/Time-Out1.jpg', className: 'img-responsive center-block' }) : _react2.default.createElement('img', { src: 'static/img/finalImage.jpg', className: 'img-responsive center-block', style: { height: '300px' } });
 
       {
-        return this.state.secondsElapsed < 5 ? _react2.default.createElement(
+        return this.state.secondsElapsed < 5 && this.state.questionId < 2 ? _react2.default.createElement(
           'div',
           { className: 'container' },
           _react2.default.createElement(
@@ -32882,7 +32883,7 @@ var Quiz = function (_React$Component) {
                 'p',
                 { className: 'text-center', style: { fontSize: '30px', color: 'black' } },
                 ' ',
-                data[this.state.questionId].question
+                "Q" + data[this.state.questionId].id + "-  " + data[this.state.questionId].question
               )
             ),
             _react2.default.createElement(
@@ -32895,7 +32896,7 @@ var Quiz = function (_React$Component) {
             'div',
             null,
             ansDiv
-          ) : _react2.default.createElement('div', null)
+          ) : null
         ) : _react2.default.createElement(
           'div',
           null,
@@ -32903,13 +32904,19 @@ var Quiz = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { style: { marginRight: '20px' }, className: 'text-right' },
-            this.state.secondsElapsed > 4 ? _react2.default.createElement(
+            this.state.secondsElapsed > 4 && this.state.questionId < 2 ? _react2.default.createElement(
               'button',
               { type: 'button', className: 'btn btn-success', onClick: this.pageRecall.bind(this) },
               'Next Question'
             ) : null
           ),
-          ansDiv
+          !(this.state.secondsElapsed < 5) && this.state.questionId < 2 ? _react2.default.createElement(
+            'div',
+            null,
+            ' ',
+            ansDiv,
+            ' '
+          ) : null
         );
       }
     }
