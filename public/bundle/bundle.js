@@ -22719,15 +22719,7 @@ var Header = function (_React$Component) {
               this.props.headerData.tagline
             )
           ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-2' },
-            _react2.default.createElement(
-              'a',
-              null,
-              'signout'
-            )
-          )
+          _react2.default.createElement('div', { className: 'col-md-2' })
         ),
         _react2.default.createElement(
           'nav',
@@ -22741,7 +22733,7 @@ var Header = function (_React$Component) {
               _react2.default.createElement(
                 'a',
                 { className: 'navbar-brand', href: '/' },
-                'Team Retro'
+                'Team '
               )
             ),
             _react2.default.createElement(
@@ -22749,7 +22741,7 @@ var Header = function (_React$Component) {
               { className: 'nav navbar-nav' },
               _react2.default.createElement(
                 'li',
-                { className: 'active' },
+                null,
                 _react2.default.createElement(
                   'a',
                   { href: '/home' },
@@ -32564,11 +32556,47 @@ var Team = function (_React$Component) {
     _createClass(Team, [{
         key: "render",
         value: function render() {
+            var team = [{ "id ": 1,
+                "name": "team A" }, { "id ": 2,
+                "name": "team B" }];
             console.log("board");
             return _react2.default.createElement(
                 "div",
                 null,
-                "Team page"
+                _react2.default.createElement(
+                    "nav",
+                    { className: "navbar navbar-light bg-light text-right" },
+                    _react2.default.createElement(
+                        "form",
+                        { className: "form-inline" },
+                        _react2.default.createElement("input", { className: "form-control mr-sm-2", type: "search", placeholder: "Search", "aria-label": "Search", onChange: function onChange(values) {
+                                team.name;
+                            } }),
+                        _react2.default.createElement(
+                            "button",
+                            { className: "btn btn-outline-success my-2 my-sm-0", type: "submit" },
+                            "Search"
+                        )
+                    )
+                ),
+                team.map(function (team) {
+                    return _react2.default.createElement(
+                        "div",
+                        { className: "media text-left" },
+                        _react2.default.createElement("img", { className: "align-self-start mr-3", src: "static/img/Time-Out1.jpg", alt: "Generic placeholder image", style: { height: '64px', width: '64px' } }),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "media-body" },
+                            _react2.default.createElement(
+                                "p",
+                                null,
+                                "  ",
+                                team.name,
+                                " "
+                            )
+                        )
+                    );
+                })
             );
         }
     }]);

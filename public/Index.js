@@ -5,7 +5,7 @@ import About from './js/components/About'
 import Board from './js/components/Board'
 import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 import Home from './js/components/Home';
-import Team from './js/components/Team'
+import Team from './js/components/teams/Team'
 import QuizInstruction from './js/components/quizs/Instruction'
 
 class Index extends React.Component {
@@ -47,6 +47,7 @@ class Index extends React.Component {
         }
     }
     render( <Index /> ,document.getElementById("root"))
-    
+
+
 
    

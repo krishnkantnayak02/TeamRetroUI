@@ -38,15 +38,16 @@ class Header extends React.Component{
               
                 </div>
                 <div className="col-md-2">
-                <a>signout</a></div>  
+                {/* <a>signout</a> */}
+                </div>  
             </div>
             <nav className="navbar navbar-inverse">
               <div className="container-fluid">
                 <div className="navbar-header">
-                  <a className="navbar-brand" href="/">Team Retro</a>
+                  <a className="navbar-brand" href="/">Team </a>
                 </div>
                 <ul className="nav navbar-nav">
-                  <li className="active"><a href="/home">Home</a></li>
+                  <li ><a href="/home">Home</a></li>
                   <li><a href="/board" onClick={() => this.setState({showModal: true})} >Create Board</a></li>
                   <li><a href="/team">Create Team</a></li>
                   <li><a href="/quiz">Create Quiz</a></li>
