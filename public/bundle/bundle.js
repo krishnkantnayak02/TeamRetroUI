@@ -32765,7 +32765,7 @@ var Quiz = function (_React$Component) {
 
     var _this2 = _possibleConstructorReturn(this, (Quiz.__proto__ || Object.getPrototypeOf(Quiz)).call(this, props));
 
-    _this2.state = { secondsElapsed: 0, timerRunning: false, next: false, questionId: 0 };
+    _this2.state = { secondsElapsed: 0, timerRunning: false, next: false, questionId: 0, flag: false };
     _this2.getSeconds = _this2.getSeconds.bind(_this2);
     _this2.getMinutes = _this2.getMinutes.bind(_this2);
     _this2.handleStartClick = _this2.handleStartClick.bind(_this2);
@@ -32809,7 +32809,8 @@ var Quiz = function (_React$Component) {
       clearInterval(this.incrementer);
       this.setState({
         lastClearedIncrementer: this.incrementer,
-        timerRunning: false
+        timerRunning: false,
+        flag: false
       });
 
       this.setState({ next: true });
@@ -32827,6 +32828,17 @@ var Quiz = function (_React$Component) {
       this.setState({ secondsElapsed: 0 });
       this.setState({ questionId: this.state.questionId + 1 });
       console.log(">>>krishnkant", this.state.questionId);
+    }
+  }, {
+    key: 'stop',
+    value: function stop() {
+      clearInterval(this.incrementer);
+      this.setState({
+        lastClearedIncrementer: this.incrementer,
+        timerRunning: false
+      });
+
+      this.setState({ flag: true });
     }
   }, {
     key: 'render',
@@ -32877,6 +32889,11 @@ var Quiz = function (_React$Component) {
           { type: 'button', onClick: this.handleStopClick },
           'Right Answer'
         ),
+        this.state.timerRunning || this.state.secondsElapsed !== 0 ? _react2.default.createElement(
+          'button',
+          { type: 'button', onClick: this.stop.bind(this) },
+          'Stop'
+        ) : null,
         this.state.next ? _react2.default.createElement(
           'div',
           { style: { marginRight: '20px' }, className: 'text-right' },
@@ -32932,7 +32949,7 @@ var Quiz = function (_React$Component) {
               timmer
             )
           ),
-          !this.state.timerRunning ? _react2.default.createElement(
+          !this.state.timerRunning && !this.state.flag ? _react2.default.createElement(
             'div',
             null,
             ansDiv

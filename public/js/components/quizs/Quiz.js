@@ -5,7 +5,7 @@ export default class Quiz extends React.Component{
    
  constructor(props){
      super(props);
-     this.state = {secondsElapsed: 0, timerRunning: false, next : false, questionId : 0}
+     this.state = {secondsElapsed: 0, timerRunning: false, next : false, questionId : 0, flag : false}
      this.getSeconds = this.getSeconds.bind(this)
      this.getMinutes = this.getMinutes.bind(this)
      this.handleStartClick =this.handleStartClick.bind(this)
@@ -44,10 +44,12 @@ export default class Quiz extends React.Component{
  clearInterval(this.incrementer);
     this.setState({
       lastClearedIncrementer: this.incrementer,
-      timerRunning: false
+      timerRunning: false, 
+      flag : false
     });
     
     this.setState({next : true})
+   
   }
 
   handleResetClick() {
@@ -61,6 +63,16 @@ export default class Quiz extends React.Component{
       this.setState({secondsElapsed : 0})
       this.setState({questionId : this.state.questionId + 1})
       console.log(">>>krishnkant", this.state.questionId)
+  }
+
+  stop(){
+    clearInterval(this.incrementer);
+    this.setState({
+      lastClearedIncrementer: this.incrementer,
+      timerRunning: false
+    });
+
+    this.setState({flag : true})
   }
 
   render(){
@@ -105,12 +117,13 @@ export default class Quiz extends React.Component{
                                         : <button type="button" onClick={this.handleStopClick}>Right Answer</button>
                                       }
 
-                                {/* {(this.state.timerRunning || this.state.secondsElapsed !== 0)
-                                  ? <button type="button" onClick={this.handleResetClick}>reset</button>
+                                {(this.state.timerRunning || this.state.secondsElapsed !== 0)
+                                  ? <button type="button" onClick={this.stop.bind(this)}>Stop</button>
                                   : null
-                                } */}
+                                }
                                  
                                 {(this.state.next ) ?  <div style = {{marginRight : '20px'}} className="text-right" > <button type="button" className="btn btn-success" onClick = {this.handleResetClick} >{this.state.questionId < 4 ? "Next Question" :"Finish"}</button></div>  : null }
+                                
                              </div>
 
                   const ansDiv = <div className="container" >
@@ -135,7 +148,7 @@ export default class Quiz extends React.Component{
                    {timmer}
                  </div>
                </div>
-           {(!this.state.timerRunning) ? <div>{ansDiv}</div> :null}
+           {((!this.state.timerRunning) && (!this.state.flag)) ? <div>{ansDiv}</div> :null}
         </div>
          : 
          <div>
