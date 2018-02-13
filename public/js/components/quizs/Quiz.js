@@ -2,7 +2,7 @@ import React from 'react';
 
 
 export default class Quiz extends React.Component{
-   
+
  constructor(props){
      super(props);
      this.state = {secondsElapsed: 0, timerRunning: false, next : false, questionId : 0, flag : false}
@@ -13,7 +13,7 @@ export default class Quiz extends React.Component{
      this.handleResetClick = this.handleResetClick.bind(this)
      this.incrementer = this.incrementer
 
-    
+
  }
 
  componentDidMount(){
@@ -44,19 +44,19 @@ export default class Quiz extends React.Component{
  clearInterval(this.incrementer);
     this.setState({
       lastClearedIncrementer: this.incrementer,
-      timerRunning: false, 
+      timerRunning: false,
       flag : false
     });
-    
+
     this.setState({next : true})
-   
+
   }
 
   handleResetClick() {
     this.setState({ secondsElapsed: 0 , timerRunning : false,lastClearedIncrementer: this.incrementer,});
     this.handleStartClick()
     this.pageRecall()
-    
+
   }
 
   pageRecall(){
@@ -111,19 +111,19 @@ export default class Quiz extends React.Component{
 
   const timmer = <div  style = {{marginRight : '20px'}} className="text-right">
                                 <h1 style = {{fontSize : '70px', color:'Blue'}}>{this.getMinutes()}:{this.getSeconds()}</h1>
-                              
-                                      {(!this.state.timerRunning) 
+
+                                      {(!this.state.timerRunning)
                                         ? <button type="button" onClick={this.handleStartClick}>start</button>
                                         : <button type="button" onClick={this.handleStopClick}>Right Answer</button>
                                       }
-
+                                  <br/><br/><br/><br/>
                                 {(this.state.timerRunning || this.state.secondsElapsed !== 0)
-                                  ? <button type="button" onClick={this.stop.bind(this)}>Stop</button>
+                                  ? <button type="button" className="btn btn-danger" onClick={this.stop.bind(this)}>Stop</button>
                                   : null
                                 }
-                                 
+                              <br/><br/>
                                 {(this.state.next ) ?  <div style = {{marginRight : '20px'}} className="text-right" > <button type="button" className="btn btn-success" onClick = {this.handleResetClick} >{this.state.questionId < 4 ? "Next Question" :"Finish"}</button></div>  : null }
-                                
+
                              </div>
 
                   const ansDiv = <div className="container" >
@@ -134,10 +134,10 @@ export default class Quiz extends React.Component{
                                     </div>
    const finalDiv =  (this.state.questionId < 5) ? <img src = "static/img/Time-Out1.jpg" className = "img-responsive center-block" /> : <img src = "static/img/finalImage.jpg" className = "img-responsive center-block" style = {{height : '300px'}} />
 
-    
+
     {
         return (this.state.secondsElapsed < 11)  && (this.state.questionId < 5)
-        ? 
+        ?
 
         <div className="container">
                  <div className="row">
@@ -150,9 +150,9 @@ export default class Quiz extends React.Component{
                </div>
            {((!this.state.timerRunning) && (!this.state.flag)) ? <div>{ansDiv}</div> :null}
         </div>
-         : 
+         :
          <div>
-         {finalDiv} 
+         {finalDiv}
 
 
        <div style = {{marginRight : '20px'}} className="text-right" >

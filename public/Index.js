@@ -9,12 +9,35 @@ import Team from './js/components/teams/Team'
 import QuizInstruction from './js/components/quizs/Instruction'
 
 class Index extends React.Component {
-  
+
 
      openAlert(){
          alert("This is test!")
      }
+
+
+    // else if (event.ctrlKey && event.shiftKey && event.keyCode==73){
+    //          return false;
+    // }
+// });
         render() {
+
+
+        document.onkeydown = function(e) {
+          console.log("command" ,event.keyCode  )
+            if(e.keyCode == 91 ) {
+            return false;
+            }
+            if(e.keyCode == 18){
+              return false;
+            }
+            if(e.keyCode == 74){
+              return false;
+              
+            }
+          }
+
+          document.addEventListener('contextmenu', event => event.preventDefault());
              var headerData = {
                  "heading" : "CompoZed Quiz",
                  "tagline" : "Team activities!"
@@ -22,9 +45,9 @@ class Index extends React.Component {
 
              const MyProductPage = (props) => {
                 return (
-                  <Board 
+                  <Board
                      openAlert = {this.openAlert}
-                    
+
                   />
                 );
               }
@@ -34,7 +57,7 @@ class Index extends React.Component {
                         <Header headerData = {headerData}/>
                        <Router history = {browserHistory}>
                         <Route path = "/" component = {Home} />
-                                
+
                                 <Route path = "/home" component = {Home}/>
                                 {/* <Route path = "/board" component = {MyProductPage} /> */}
                                 <Route path = "/board"  component={() => <Board openAlert = {this.openAlert} />} />
@@ -47,7 +70,3 @@ class Index extends React.Component {
         }
     }
     render( <Index /> ,document.getElementById("root"))
-
-
-
-   

@@ -5326,57 +5326,79 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Index = function (_React$Component) {
-    _inherits(Index, _React$Component);
+  _inherits(Index, _React$Component);
 
-    function Index() {
-        _classCallCheck(this, Index);
+  function Index() {
+    _classCallCheck(this, Index);
 
-        return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).apply(this, arguments));
+  }
+
+  _createClass(Index, [{
+    key: 'openAlert',
+    value: function openAlert() {
+      alert("This is test!");
     }
 
-    _createClass(Index, [{
-        key: 'openAlert',
-        value: function openAlert() {
-            alert("This is test!");
+    // else if (event.ctrlKey && event.shiftKey && event.keyCode==73){
+    //          return false;
+    // }
+    // });
+
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      document.onkeydown = function (e) {
+        console.log("command", event.keyCode);
+        if (e.keyCode == 91) {
+          return false;
         }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            var headerData = {
-                "heading": "CompoZed Quiz",
-                "tagline": "Team activities!"
-            };
-
-            var MyProductPage = function MyProductPage(props) {
-                return _react2.default.createElement(_Board2.default, {
-                    openAlert: _this2.openAlert
-
-                });
-            };
-
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(_Header2.default, { headerData: headerData }),
-                _react2.default.createElement(
-                    _reactRouter.Router,
-                    { history: _reactRouter.browserHistory },
-                    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
-                    _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
-                    _react2.default.createElement(_reactRouter.Route, { path: '/board', component: function component() {
-                            return _react2.default.createElement(_Board2.default, { openAlert: _this2.openAlert });
-                        } }),
-                    _react2.default.createElement(_reactRouter.Route, { path: '/team', component: _Team2.default }),
-                    _react2.default.createElement(_reactRouter.Router, { path: '/quiz', component: _Instruction2.default }),
-                    _react2.default.createElement(_reactRouter.Router, { path: '/about', component: _About2.default })
-                )
-            );
+        if (e.keyCode == 18) {
+          return false;
         }
-    }]);
+        if (e.keyCode == 74) {
+          return false;
+        }
+      };
 
-    return Index;
+      document.addEventListener('contextmenu', function (event) {
+        return event.preventDefault();
+      });
+      var headerData = {
+        "heading": "CompoZed Quiz",
+        "tagline": "Team activities!"
+      };
+
+      var MyProductPage = function MyProductPage(props) {
+        return _react2.default.createElement(_Board2.default, {
+          openAlert: _this2.openAlert
+
+        });
+      };
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_Header2.default, { headerData: headerData }),
+        _react2.default.createElement(
+          _reactRouter.Router,
+          { history: _reactRouter.browserHistory },
+          _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
+          _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
+          _react2.default.createElement(_reactRouter.Route, { path: '/board', component: function component() {
+              return _react2.default.createElement(_Board2.default, { openAlert: _this2.openAlert });
+            } }),
+          _react2.default.createElement(_reactRouter.Route, { path: '/team', component: _Team2.default }),
+          _react2.default.createElement(_reactRouter.Router, { path: '/quiz', component: _Instruction2.default }),
+          _react2.default.createElement(_reactRouter.Router, { path: '/about', component: _About2.default })
+        )
+      );
+    }
+  }]);
+
+  return Index;
 }(_react2.default.Component);
 
 (0, _reactDom.render)(_react2.default.createElement(Index, null), document.getElementById("root"));
@@ -32667,12 +32689,15 @@ var Instruction = function (_React$Component) {
           { className: 'row' },
           _react2.default.createElement(
             'div',
-            { className: 'col-md-6 col-md-offset-5' },
+            { className: 'text-center ' },
             _react2.default.createElement(
               'p',
-              { style: { color: "red", fontSize: "20px" } },
-              'Instruction For Quiz'
-            )
+              { style: { color: "red", fontSize: "30px" } },
+              'Instructions For Quiz'
+            ),
+            _react2.default.createElement('br', null),
+            '  ',
+            _react2.default.createElement('br', null)
           )
         ),
         _react2.default.createElement(
@@ -32680,28 +32705,33 @@ var Instruction = function (_React$Component) {
           null,
           _react2.default.createElement(
             'p',
-            { className: 'text-center' },
-            'Left aligned text on viewports sized '
+            { style: { fontSize: "20px" }, className: 'text-center' },
+            'Quiz is Containing 20 questions and for each question time is 15second . '
           ),
+          _react2.default.createElement('br', null),
           _react2.default.createElement(
             'p',
-            { className: 'text-center' },
-            'Left aligned text on viewports sized '
+            { style: { fontSize: "20px" }, className: 'text-center' },
+            'Questions are not objective type. '
           ),
+          _react2.default.createElement('br', null),
           _react2.default.createElement(
             'p',
-            { className: 'text-center' },
+            { style: { fontSize: "20px" }, className: 'text-center' },
             'Left aligned text on viewports sized '
           ),
+          _react2.default.createElement('br', null),
           _react2.default.createElement(
             'p',
-            { className: 'text-center' },
+            { style: { fontSize: "20px" }, className: 'text-center' },
             'Left aligned text on viewports sized '
-          )
+          ),
+          _react2.default.createElement('br', null)
         ),
         _react2.default.createElement(
           'div',
           { className: 'text-center' },
+          _react2.default.createElement('br', null),
           _react2.default.createElement(
             'button',
             { type: 'button', className: 'btn btn-primary', onClick: this.openQuiz.bind(this) },
@@ -32889,11 +32919,17 @@ var Quiz = function (_React$Component) {
           { type: 'button', onClick: this.handleStopClick },
           'Right Answer'
         ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
         this.state.timerRunning || this.state.secondsElapsed !== 0 ? _react2.default.createElement(
           'button',
-          { type: 'button', onClick: this.stop.bind(this) },
+          { type: 'button', className: 'btn btn-danger', onClick: this.stop.bind(this) },
           'Stop'
         ) : null,
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
         this.state.next ? _react2.default.createElement(
           'div',
           { style: { marginRight: '20px' }, className: 'text-right' },
