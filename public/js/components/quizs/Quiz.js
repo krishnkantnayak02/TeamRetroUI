@@ -5,7 +5,7 @@ export default class Quiz extends React.Component{
 
  constructor(props){
      super(props);
-     this.state = {secondsElapsed: 0, timerRunning: false, next : false, questionId : 0, flag : false}
+     this.state = {secondsElapsed: 0, timerRunning: false, next : false, questionId : 0, flag : false, toggleForTimeOut: false}
      this.getSeconds = this.getSeconds.bind(this)
      this.getMinutes = this.getMinutes.bind(this)
      this.handleStartClick =this.handleStartClick.bind(this)
@@ -62,7 +62,7 @@ export default class Quiz extends React.Component{
   pageRecall(){
       this.setState({secondsElapsed : 0})
       this.setState({questionId : this.state.questionId + 1})
-      console.log(">>>krishnkant", this.state.questionId)
+      this.setState({toggleForTimeOut: false})
   }
 
   stop(){
@@ -74,7 +74,9 @@ export default class Quiz extends React.Component{
 
     this.setState({flag : true})
   }
-
+rightAnsTimeOut(){
+  this.setState({toggleForTimeOut: true})
+}
   render(){
 
     const data = [{
@@ -161,7 +163,9 @@ export default class Quiz extends React.Component{
             : null
           }
           </div>
-          {!(this.state.secondsElapsed < 10 ) && (this.state.questionId < 5) ? <div> {ansDiv} </div> : null}
+
+           <div className = "text-center" ><button type="button" className="btn btn-success" onClick={this.rightAnsTimeOut.bind(this)}>Right Ans</button></div>
+          {(this.state.toggleForTimeOut) ? <div> {ansDiv} </div> : null}
         </div>;
       }
   }
